@@ -2,11 +2,14 @@ import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {SignInPage } from './pages/sign-in/sign-in';
 import {ListPage} from './pages/list/list';
+import { MissionService } from './mission.service';
+import {HTTP_BINDINGS} from 'angular2/http';
 
 // This @App specifies the root component
 @App({
   templateUrl: 'build/app.html',
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+  config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
+  providers: [MissionService, HTTP_BINDINGS]
 })
 class MyApp {
   // make SignInPage the root (or first) page
@@ -16,14 +19,15 @@ class MyApp {
   constructor(
     private app: IonicApp,
     private platform: Platform,
-    private menu: MenuController
+    private menu: MenuController,
+    MissionService: MissionService
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
       { title: 'Sign In', component: SignInPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'My Missions', component: ListPage }
     ];
   }
 

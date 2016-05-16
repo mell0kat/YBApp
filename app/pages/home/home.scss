@@ -1,0 +1,13 @@
+$puertoRico:#44C3AA;
+$eastBay:#394267;
+
+.getting-started {
+  p {
+    margin: 20px 0;
+    line-height: 22px;
+    font-size: 16px;
+  }
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$puertoRico), color-stop(100%,$eastBay));
+
+}
+

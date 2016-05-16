@@ -5,14 +5,23 @@
 			  text-center 
 			  type="email" 
 			  placeholder="EMAIL"
-			  [ngModel]="email" 
+			  [(ngModel)]="user.email" 
 			  (ngModelChange)="uppercase($event)"
 			  >
 			   
 			</ion-input>
 		</ion-item>
 		<ion-item > 
-		  <ion-input text-center type="password" placeholder="PASSWORD"></ion-input>
+		  <ion-input 
+		  text-center 
+		  type="password" 
+		  placeholder="PASSWORD"
+		  [(ngModel)]="user.password" 
+		  (ngModelChange)="user.password=$event"
+		  ></ion-input>
 		</ion-item>
+		<button round clear outline (click)="signin(user)">Sign in</button>
 	</ion-list>
+
+	<h3>Forgot username or password</h3>
 </ion-content>

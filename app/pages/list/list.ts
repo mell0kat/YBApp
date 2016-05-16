@@ -1,7 +1,8 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {ItemDetailsPage} from '../item-details/item-details';
 import {OnInit} from 'angular2/core';
-import {MissionService} from '../../mission.service'
+import {MissionService} from '../../mission.service';
+
 
 @Page({
   templateUrl: 'build/pages/list/list.html'
@@ -35,18 +36,29 @@ export class ListPage implements OnInit {
   }
   getMissions(){
     this.missionService.getMissions()
-    .then(
-      observable => {
-      console.log('missions:', observable)
-      observable.subscribe(
-        response => console.log('response:', response._body))
-       // this.items = missions;
-    },
-    error => this.errorMessage = error);
+      .subscribe(
+        species => {
+          console.log('SPECIES', species)
+          this.items = species.results;
+          console.log('THIS ESE ITEMS', this.items)
+        },
+        error => {this.errorMessage = <any>error;
+          console.log('error')
+        }
+        )
+    // .then(
+    //   observable => {
+    //   observable.subscribe(
+    //     response => {
+    //       this.items =  response._body['results'];
+    //       console.log("THESE ITEMS", this.items)
+    //     },
+    //     error => {this.errorMessage = error});
+    // })
   }
   itemTapped(event, item) {
     this.nav.push(ItemDetailsPage, {
       item: item
     });
   }
-}
+};

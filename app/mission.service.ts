@@ -1,30 +1,41 @@
 import { Injectable } from 'angular2/core';
-import { Http, HTTP_BINDINGS } from 'angular2/http';
-
+import { Http, HTTP_BINDINGS, Response } from 'angular2/http';
+import { Observable } from 'rxjs/Observable';
+import { Species } from './components/species.components';
 // This is called a decorator
+
+
 @Injectable()
 export class MissionService {
 	
-	constructor(private http: Http){
-
-	}
-	getMissions(){
-		console.log('trying to get missions in missionservice')
-		let missions = this.http.get('http://swapi.co/api/planets/')
+	constructor(private http: Http){}
+	getMissions (): Observable <Species[]> {
+		return this.http.get('http://swapi.co/api/planets/')
+			.map(this.extractData)
+			.catch(this.handleError)
+			// .then(res => {
+			// 	console.log('res', res)
+			// 	console.log('trying to get missions in missionservice')
+			// })
 		
-		return Promise.resolve(missions);
+		// let missions = this.http.get(
+		
+		// return Promise.resolve(missions);
+		
+		// .then(people => {console.log('people:', people)})
 	}
 	private extractData(res: Response) {
 		  if (res.status < 200 || res.status >= 300) {
 	      throw new Error('Response status: ' + res.status);
 	    }
-	    let body = res.json();
-	    return body.data || { };
+	    console.log('THIS IS THE RES', res)
+	    // let body = res.json();
+	    return res._body;
 	}
-	  private handleError (error: any) {
+	private handleError (error: any) {
 	    // In a real world app, we might use a remote logging infrastructure
 	    let errMsg = error.message || 'Server error';
 	    console.error(errMsg); // log to console instead
-	    // return Observable.throw(errMsg);
+	    return Observable.throw(errMsg);
 	  }
 }

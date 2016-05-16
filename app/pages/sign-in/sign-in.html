@@ -1,0 +1,19 @@
+<ion-content padding scroll="false" class="sign-in">
+	<ion-list>
+		<ion-item uppercased>
+		  <ion-label text-center floating>Email</ion-label>
+		  <ion-input 
+			  text-center 
+			  type="email" 
+			  [ngModel]="email" 
+			  (ngModelChange)="uppercase($event)"
+			  >
+			   
+			</ion-input>
+		</ion-item>
+		<ion-item >
+		  <ion-label text-center floating>Password</ion-label>
+		  <ion-input text-center type="password"></ion-input>
+		</ion-item>
+	</ion-list>
+</ion-content>

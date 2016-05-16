@@ -23,7 +23,7 @@ class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Sign In', component: SignInPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'My Missions', component: ListPage }
     ];
   }
 

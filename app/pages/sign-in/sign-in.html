@@ -17,7 +17,7 @@
 		  type="password" 
 		  placeholder="PASSWORD"
 		  [(ngModel)]="user.password" 
-		  (ngModelChange)="setUserPassword($event)"
+		  (ngModelChange)="user.password=$event"
 		  ></ion-input>
 		</ion-item>
 		<button round clear outline (click)="signin(user)">Sign in</button>

@@ -7,21 +7,19 @@ import {HomePage} from '../home/home';
   directives: [NgModel]
 })
 
-interface User {
-	email:string; 
-	password:string;
-}
-
 export class SignInPage {
-
-  constructor(private nav: NavController, user: User = {email:'', password:''}) {
-   
+  user:any;
+  constructor(private nav: NavController) {
+  	this.user = {
+  		email:'',
+  		password:''
+  	}
   }
   uppercase(event='') {
   	this.user.email = event.toUpperCase();
   }
   setUserPassword(password){
-  	this.user.password = password;
+    this.user.password = password;
   }
   signin(user) {
   	// this is very secure

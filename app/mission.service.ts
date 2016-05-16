@@ -28,9 +28,10 @@ export class MissionService {
 		  if (res.status < 200 || res.status >= 300) {
 	      throw new Error('Response status: ' + res.status);
 	    }
-	    console.log('THIS IS THE RES', res)
-	    // let body = res.json();
-	    return res._body;
+	    console.log('THIS IS THE RES', res, 'type of res:', typeof res, 'typeof res.body', typeof res._body)
+	    let body = JSON.parse(res._body);
+
+	    return body;
 	}
 	private handleError (error: any) {
 	    // In a real world app, we might use a remote logging infrastructure

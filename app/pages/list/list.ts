@@ -38,9 +38,10 @@ export class ListPage implements OnInit {
     this.missionService.getMissions()
       .subscribe(
         species => {
-          console.log('SPECIES', species)
+          console.log('SPECIES', typeof species, species)
           this.items = species.results;
-          console.log('THIS ESE ITEMS', this.items)
+          
+
         },
         error => {this.errorMessage = <any>error;
           console.log('error')

@@ -7,15 +7,15 @@ import {HomePage} from '../home/home';
   directives: [NgModel]
 })
 
+interface User {
+	email:string; 
+	password:string;
+}
 
 export class SignInPage {
-   public user: {
-   	email:string,
-   	password: string
-   };
 
-   constructor(private nav: NavController) {
-   	this.user={};
+  constructor(private nav: NavController, user: User = {email:'', password:''}) {
+   
   }
   uppercase(event='') {
   	this.user.email = event.toUpperCase();

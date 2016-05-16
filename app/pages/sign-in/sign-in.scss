@@ -1,0 +1,17 @@
+$puertoRico:#44C3AA;
+$eastBay:#394267;
+.sign-in {
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	height:100%;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$puertoRico), color-stop(100%,$eastBay));
+	
+   ion-item {
+   		background:none;
+   		color:white;
+   }
+   ion-input {
+   		text-transform: uppercase;
+   }
+}
+

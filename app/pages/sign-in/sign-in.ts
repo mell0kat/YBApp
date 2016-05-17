@@ -22,8 +22,7 @@ export class SignInPage {
     this.user.password = password;
   }
   signin(user) {
-  	// this is very secure
-  	console.log(user);
+  	// c'est tres secure
   	if  (user){
   		this.nav.setRoot(HomePage)
   	}

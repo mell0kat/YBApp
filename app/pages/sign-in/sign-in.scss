@@ -1,12 +1,9 @@
-$puertoRico:#44C3AA;
-$eastBay:#394267;
-
 .sign-in {
    text-align: center;
 	display: -webkit-flex;
 	flex-direction: column;
 	height:100%;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$puertoRico), color-stop(100%,$eastBay));
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$puerto-rico), color-stop(100%,$east-bay));
    
    .true-content {
       margin: 30% auto;

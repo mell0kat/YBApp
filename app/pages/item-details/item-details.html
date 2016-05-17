@@ -10,7 +10,7 @@
     <ion-card>
     <img src="{{selectedItem.imagePath}}" class="large-card-images"/>
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title class="planet-name">
         {{selectedItem.name}}
         </ion-card-title>
       <h3>
@@ -25,7 +25,7 @@
       <h3>
         <strong>Population:</strong> {{selectedItem.population}}
       </h3>
-      <button round light outline (click)="navigateBackToPlanets()">Back to planet list.</button>
+      <button round light outline (click)="navigateBackToPlanets()">Back to planet list</button>
     </ion-card-content>
   </ion-card>
 

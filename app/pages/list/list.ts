@@ -1,7 +1,7 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {ItemDetailsPage} from '../item-details/item-details';
 import {OnInit} from 'angular2/core';
-import {MissionService} from '../../mission.service';
+import {MissionService} from '../../planet.service';
 
 
 @Page({
@@ -37,7 +37,6 @@ export class ListPage implements OnInit {
     this.missionService.getMissions()
       .subscribe(
         planets => {
-          console.log('planets', typeof planets, planets)
           this.items = planets;
           for (let i = 0; i< this.items.length; i++){
             if (this.imagePaths[i]){
@@ -47,17 +46,13 @@ export class ListPage implements OnInit {
             }
 
           }
-          console.log(this.items)
-      
-
         },
         error => {this.errorMessage = <any>error;
-          console.log('error')
+          console.log(error)
         }
         )
   }
   planetClicked(event, item) {
-    console.log('I been clicked!')
     this.nav.push(ItemDetailsPage, {
       item: item
     });

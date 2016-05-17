@@ -6,15 +6,24 @@
 </ion-navbar>
 
 <ion-content>
-  <ion-card *ngFor="#item of items" click="speciesClicked($event, item)">
-    <img src="img/nin-live.png"/>
+  <ion-card *ngFor="#item of items" (click)="planetClicked($event, item)">
+    <img src="{{item.imagePath}}" class="card-images"/>
     <ion-card-content>
       <ion-card-title>
         {{item.name}}
         </ion-card-title>
-      <p>
-        {{item.designation}}
-      </p>
+      <h3>
+        <strong>Climate:</strong> {{item.climate}}
+      </h3>
+       <h3>
+        <strong>Orbital period: </strong>{{item.orbital_period}}
+      </h3>
+      <h3>
+        <strong>Terrain:</strong> {{item.terrain}}
+      </h3>
+      <h3>
+        <strong>Population:</strong> {{item.population}}
+      </h3>
     </ion-card-content>
   </ion-card>
 </ion-content>

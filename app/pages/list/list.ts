@@ -16,6 +16,7 @@ export class ListPage implements OnInit {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
   errorMessage: string;
+  imagePaths: string[];
   constructor(private nav: NavController, navParams: NavParams, private missionService: MissionService) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
@@ -23,41 +24,40 @@ export class ListPage implements OnInit {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-
-    // REPLACE THIS WITH SERVICE
-   
-    // for(let i = 1; i < 11; i++) {
-    //   this.items.push({
-    //     title: 'Item ' + i,
-    //     note: 'This is item #' + i,
-    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-    //   });
-    // }
+    this.imagePaths = ['/img/Alderaan.jpg',
+    '/img/Eaw_Yavin4.jpg',
+    '/img/hoth.jpeg',
+    '/img/Dagobah_ep3.jpg',
+    '/img/250px-Bespin.jpg',
+    '/img/Endor-DB.png',
+    '/img/Naboo.png']
   }
+
   getMissions(){
     this.missionService.getMissions()
       .subscribe(
-        species => {
-          console.log('SPECIES', typeof species, species)
-          this.items = species.results;
-          
+        planets => {
+          console.log('planets', typeof planets, planets)
+          this.items = planets;
+          for (let i = 0; i< this.items.length; i++){
+            if (this.imagePaths[i]){
+              this.items[i].imagePath = this.imagePaths[i];
+            }else{
+              this.items[i].imagePath = '/img/saturn.png'
+            }
+
+          }
+          console.log(this.items)
+      
 
         },
         error => {this.errorMessage = <any>error;
           console.log('error')
         }
         )
-    // .then(
-    //   observable => {
-    //   observable.subscribe(
-    //     response => {
-    //       this.items =  response._body['results'];
-    //       console.log("THESE ITEMS", this.items)
-    //     },
-    //     error => {this.errorMessage = error});
-    // })
   }
-  itemTapped(event, item) {
+  planetClicked(event, item) {
+    console.log('I been clicked!')
     this.nav.push(ItemDetailsPage, {
       item: item
     });

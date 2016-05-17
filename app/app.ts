@@ -4,6 +4,7 @@ import {SignInPage } from './pages/sign-in/sign-in';
 import {ListPage} from './pages/list/list';
 import { MissionService } from './mission.service';
 import {HTTP_BINDINGS} from 'angular2/http';
+import 'rxjs/Rx'; 
 
 // This @App specifies the root component
 @App({

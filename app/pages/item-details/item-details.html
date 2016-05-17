@@ -2,15 +2,32 @@
   <button menuToggle *ngIf="!selectedItem">
     <ion-icon name="menu"></ion-icon>
   </button>
-  <ion-title>Item Details</ion-title>
+  <ion-title>Planet Details</ion-title>
 </ion-navbar>
 
 <ion-content>
  <div *ngIf="selectedItem" class="selection">
-    <b>{{selectedItem.title}}</b>
-    <ion-icon name="{{selectedItem.icon}}"></ion-icon>
-    <div>
-      You navigated here from <b>{{selectedItem.title}}</b>
-    </div>
+    <ion-card>
+    <img src="{{selectedItem.imagePath}}" class="large-card-images"/>
+    <ion-card-content>
+      <ion-card-title class="planet-name">
+        {{selectedItem.name}}
+        </ion-card-title>
+      <h3>
+        <strong>Climate:</strong> {{selectedItem.climate}}
+      </h3>
+       <h3>
+        <strong>Orbital period: </strong>{{selectedItem.orbital_period}}
+      </h3>
+      <h3>
+        <strong>Terrain:</strong> {{selectedItem.terrain}}
+      </h3>
+      <h3>
+        <strong>Population:</strong> {{selectedItem.population}}
+      </h3>
+      <button round light outline (click)="navigateBackToPlanets()">Back to planet list</button>
+    </ion-card-content>
+  </ion-card>
+
   </div>
 </ion-content>

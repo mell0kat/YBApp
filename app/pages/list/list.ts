@@ -9,7 +9,6 @@ import {MissionService} from '../../planet.service';
 })
 export class ListPage implements OnInit {
   ngOnInit() {
-    console.log('on initing')
     this.getMissions();
   }
   selectedItem: any;

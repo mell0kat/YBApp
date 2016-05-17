@@ -1,7 +1,19 @@
 div.selection {
-  font-size: 22px;
+  font-size: 50px;
   display: block;
   text-align: center;
   padding-top: 5%;
+
+  button {
+  	margin-left: 5%;
+  }
 }
+
+.large-card-images {
+	width: 70%;
+	margin: 5% auto;
+	border-radius:2em;
+}
+
+
 

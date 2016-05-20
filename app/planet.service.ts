@@ -3,16 +3,16 @@ import { Http, HTTP_BINDINGS } from 'angular2/http';
 
 // This is called a decorator
 @Injectable()
-export class MissionService {
+export class PlanetService {
 	
 	constructor(private http: Http){
 
 	}
-	getMissions(){
-		console.log('trying to get missions in missionservice')
-		let missions = this.http.get('http://swapi.co/api/planets/')
+	getPlanets(){
 		
-		return Promise.resolve(missions);
+		let planets = this.http.get('http://swapi.co/api/planets/')
+		
+		return Promise.resolve(planets);
 	}
 	private extractData(res: Response) {
 		  if (res.status < 200 || res.status >= 300) {

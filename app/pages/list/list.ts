@@ -1,7 +1,7 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {ItemDetailsPage} from '../item-details/item-details';
 import {OnInit} from 'angular2/core';
-import {MissionService} from '../../mission.service'
+import {PlanetService} from '../../planet.service'
 
 @Page({
   templateUrl: 'build/pages/list/list.html'
@@ -9,7 +9,7 @@ import {MissionService} from '../../mission.service'
 export class ListPage implements OnInit {
   ngOnInit() {
     console.log('on initing')
-    this.getMissions();
+    this.getPlanets();
   }
   selectedItem: any;
   icons: string[];
@@ -22,22 +22,12 @@ export class ListPage implements OnInit {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-
-    // REPLACE THIS WITH SERVICE
-   
-    // for(let i = 1; i < 11; i++) {
-    //   this.items.push({
-    //     title: 'Item ' + i,
-    //     note: 'This is item #' + i,
-    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-    //   });
-    // }
   }
-  getMissions(){
-    this.missionService.getMissions()
+  getPlanets(){
+    this.planetService.getPlanets()
     .then(
       observable => {
-      console.log('missions:', observable)
+      
       observable.subscribe(
         response => console.log('response:', response._body))
        // this.items = missions;

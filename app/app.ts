@@ -2,7 +2,7 @@ import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {SignInPage } from './pages/sign-in/sign-in';
 import {ListPage} from './pages/list/list';
-import { MissionService } from './mission.service';
+import { PlanetService } from './planet.service';
 import {HTTP_BINDINGS} from 'angular2/http';
 import 'rxjs/Rx'; 
 
@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 @App({
   templateUrl: 'build/app.html',
   config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
-  providers: [MissionService, HTTP_BINDINGS]
+  providers: [PlanetService, HTTP_BINDINGS]
 })
 class MyApp {
   // make SignInPage the root (or first) page
@@ -21,14 +21,14 @@ class MyApp {
     private app: IonicApp,
     private platform: Platform,
     private menu: MenuController,
-    MissionService: MissionService
+    PlanetService: PlanetService
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
       { title: 'Sign In', component: SignInPage },
-      { title: 'My Missions', component: ListPage }
+      { title: 'Planets', component: ListPage }
     ];
   }
 
